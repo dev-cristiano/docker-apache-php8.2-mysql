@@ -2,27 +2,27 @@ Esse repositório contem as imagens para a montagem de ambiente de desenvolvimen
 
 Apache + PHP 8 + MySQL + phpMyAdmin
 
-1 - abra o terminal e digite os passos a baixo
+1. - abra o terminal e digite os passos a baixo
 
-# Para baixar as imagens e criar os containers
+2. -Para baixar as imagens e criar os containers
 - docker-compose up -d
 
-# Para iniciar os containers do Docker
+3. Para iniciar os containers do Docker
 - docker-compose start
 
-# Para parar os containers do Docker
+4. Para parar os containers do Docker
 - docker-compose stop
 
-# Para remover os containers do Docker
+5. Para remover os containers do Docker
 - docker-compose down
 
-# Links para os sites - Renomeie a pasta Formatacao para o nome do seu projeto
+Links para os sites - Renomeie a pasta Formatacao para o nome do seu projeto
 
-# Localhost
+Localhost
 http://localhost:4500/formatacao/
 
-# PhpMyAdmin
+PhpMyAdmin
 http://localhost:8080
 
-# Usuário: root
-# Senha: root
+Usuário: root
+Senha: root
