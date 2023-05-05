@@ -3,6 +3,7 @@ version: '3.1'
 services:
 
   web: 
+
     image: webdevops/php-apache:8.0
     ports: 
       - "4500:80"
@@ -10,14 +11,47 @@ services:
       - ./www:/app
 
   db:
+
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
 
   phpmyadmin:
+
     image: phpmyadmin
     restart: always
     ports:
       - 8080:80
+
+  jenkins:
+
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
+
+    ports:
+      - "8081:8080"
+
+    environment:
+      - JENKINS_ADMIN_PASSWORD=@Bio199
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+      - JENKINS_HOME=/var/jenkins_home
+
+    volumes:
+      - /var/jenkins/caches:/var/jenkins/caches
+      - /var/jenkins/.sock:/var/jenkins/docker.sock
+
+      - /var/jenkins_home:/var/jenkins_home
+
+  ssh-agent:
+    image:
+      jenkins/ssh-agent
+volumes:
+  jenkins_home:
